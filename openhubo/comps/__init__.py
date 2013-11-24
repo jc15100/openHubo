@@ -146,6 +146,7 @@ class Cbirrt:
         self.smoothing=smoothing
         self.psample=psample
         self.supportlinks=[]
+        self.polyscale = "1.0 1.0 0"
         self.jointgoals=[]
         self.jointstarts=[]
         self.solved=False
@@ -186,6 +187,7 @@ class Cbirrt:
             cmd.append('psample {}'.format(self.psample))
         if len(self.supportlinks)>0:
             cmd.append('supportlinks {} {}'.format(len(self.supportlinks),' '.join(self.supportlinks)))
+            cmd.append('polyscale {}'.format(self.polyscale))
             cmd.append('exactsupport {}'.format(int(self.exactsupport)))
 
         if self.ikpose is not None:
